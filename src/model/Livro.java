@@ -2,7 +2,7 @@ package model;
 
 public class Livro {
     private int livro_id;
-    private int editora_id;
+    private Editora editora;
     private String titulo;
     private int ano;
     private String descricao;
@@ -15,12 +15,12 @@ public class Livro {
         this.livro_id = livro_id;
     }
 
-    public int getEditora_id() {
-        return editora_id;
+    public Editora getEditora() {
+        return editora;
     }
 
-    public void setEditora_id(int editora_id) {
-        this.editora_id = editora_id;
+    public void setEditora(Editora editora) {
+        this.editora = editora;
     }
 
     public String getTitulo() {
@@ -46,6 +46,5 @@ public class Livro {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
     
 }

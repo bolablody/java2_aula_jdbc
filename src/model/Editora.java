@@ -29,5 +29,9 @@ public class Editora {
         this.municipio = municipio;
     }
     
+    @Override
+    public String toString() {
+        return nome + " - " + municipio;
+    }
     
 }
