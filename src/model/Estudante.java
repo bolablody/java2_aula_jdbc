@@ -6,8 +6,8 @@ public class Estudante {
     private int estudante_id;
     private String nome;
     private String curso;
-    private String data_matricula;
-    private char status;
+    private Date data_matricula;
+    private String status;
 
     public int getEstudante_id() {
         return estudante_id;
@@ -33,19 +33,19 @@ public class Estudante {
         this.curso = curso;
     }
     
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getData_matricula() {
+    public Date getData_matricula() {
         return data_matricula;
     }
 
-    public void setData_matricula(String data_matricula) {
+    public void setData_matricula(Date data_matricula) {
         this.data_matricula = data_matricula;
     }
     

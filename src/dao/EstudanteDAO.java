@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class EstudanteDAO {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setString(1, estudante.getNome());
             p.setString(2, estudante.getCurso());
-            p.setString(3, estudante.getData_matricula());
+            p.setDate(3, estudante.getData_matricula());
             p.setString(4, ""+estudante.getStatus());
             p.execute();
         } catch (SQLException ex) {
@@ -40,7 +41,7 @@ public class EstudanteDAO {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setString(1, estudante.getNome());
             p.setString(2, estudante.getCurso());
-            p.setString(3, estudante.getData_matricula());
+            p.setDate(3, estudante.getData_matricula());
             p.setString(4, " "+estudante.getStatus());
             p.setInt(5, estudante.getEstudante_id());
             p.execute();
@@ -78,11 +79,11 @@ public class EstudanteDAO {
             while (rs.next()) {
                 // Instancia a classe e informa os valores do BD
                 objeto = new Estudante();
-                objeto.setEstudante_id(rs.getInt("editora_id"));
+                objeto.setEstudante_id(rs.getInt("estudante_id"));
                 objeto.setNome(rs.getString("nome"));
                 objeto.setCurso(rs.getString("curso"));                
-                objeto.setData_matricula(rs.getString("data_matricula"));
-                objeto.setStatus(rs.getString("status").charAt(0));
+                objeto.setData_matricula(rs.getDate("data_matricula"));
+                objeto.setStatus(rs.getString("status"));
                 // Inclui na lista
                 list.add(objeto);
             }
