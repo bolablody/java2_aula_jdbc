@@ -22,12 +22,12 @@ public class EstudanteDAO {
     }
 
     public void save(Estudante estudante) throws Exception {
-        String SQL = "INSERT INTO ESTUDANTE (NOME, CURSO, DATA_MATRICULA, STATUS) VALUES (?, ?)";
+        String SQL = "INSERT INTO ESTUDANTE (NOME, CURSO, DATA_MATRICULA, STATUS) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setString(1, estudante.getNome());
             p.setString(2, estudante.getCurso());
-            p.setDate(3, estudante.getData_matricula());
+            p.setDate(3, new Date(estudante.getData_matricula().getTime()));
             p.setString(4, ""+estudante.getStatus());
             p.execute();
         } catch (SQLException ex) {
@@ -41,7 +41,7 @@ public class EstudanteDAO {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setString(1, estudante.getNome());
             p.setString(2, estudante.getCurso());
-            p.setDate(3, estudante.getData_matricula());
+            p.setDate(3, new Date(estudante.getData_matricula().getTime()));
             p.setString(4, " "+estudante.getStatus());
             p.setInt(5, estudante.getEstudante_id());
             p.execute();

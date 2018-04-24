@@ -48,6 +48,8 @@ public class Estudante {
     public void setData_matricula(Date data_matricula) {
         this.data_matricula = data_matricula;
     }
-    
-    
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
